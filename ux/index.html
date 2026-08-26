@@ -13,8 +13,69 @@
           <li><a href="#">Etusivu</a></li>
           <li><a href="#">Menu</a></li>
           <li><a href="#">Yhteystiedot</a></li>
+          <li class="register-button">
+            <button href="#" onclick="openForm()">Rekisteröidy</button>
+          </li>
         </ul>
       </nav>
+      <dialog class="dialog" id="dialog">
+        <div class="dialog-content">
+          <form action="" id="register" class="form">
+            <h1>Rekisteröidy</h1>
+            <img src="./login.svg" alt="" height="200" />
+            <div class="form-inputs">
+              <div class="form-input">
+                <label for="name">Sukunimi:</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  oninvalid=""
+                  required
+                  minlength="3"
+                />
+                <span class="invalid-name"
+                  >Nimen pitää ollä vähintään 3 kirjainta</span
+                >
+              </div>
+              <div class="form-input">
+                <label for="name"> Email osoite (@metropolia.fi):</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  pattern="^.*@metropolia.fi"
+                  required
+                />
+                <span class="invalid-email"
+                  >Sähköposti pitää olla @metropolia.fi päättyinen
+                </span>
+              </div>
+              <div class="form-input">
+                <label for="password">Salasana:</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  pattern="^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$"
+                  required
+                />
+                <span class="invalid-passw"
+                  >Salasanan täytyy sisältää ison kirjaimen, sekä numeron</span
+                >
+              </div>
+            </div>
+            <div class="form-buttons">
+              <div class="closeButton">
+                <button onclick="closeForm()">Sulje</button>
+              </div>
+              <div class="submitButton">
+                <button type="submit">Lähetä</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </dialog>
 
       <div class="about">
         <div class="bg">
@@ -39,5 +100,16 @@
         </div>
       </div>
     </div>
+    <script>
+      const dialog = document.getElementById("dialog");
+
+      const openForm = (e) => {
+        dialog.showModal();
+      };
+
+      const closeForm = () => {
+        dialog.close();
+      };
+    </script>
   </body>
 </html>

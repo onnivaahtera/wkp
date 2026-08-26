@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --ac-color: oklch(27.9% 0.041 260.031);
+  --main-bg-color: #fefefe;
+  --invalid: red;
+  --valid: green;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +14,7 @@
 
 body {
   min-height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -21,7 +31,15 @@ ul {
   margin: 0;
   padding: 1rem;
   overflow: hidden;
-  background-color: oklch(27.9% 0.041 260.031);
+  background-color: var(--ac-color);
+}
+
+.register-button {
+  float: right;
+}
+
+.register-button > a {
+  font-weight: 400;
 }
 
 ul li {
@@ -35,7 +53,117 @@ ul li a {
   text-decoration: none;
 }
 
+nav button {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  background: none;
+  border: 0px;
+}
+
+nav button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.dialog {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  backdrop-filter: blur(5px);
+}
+
+.dialog-content {
+  background-color: var(--main-bg-color);
+  padding: 10px;
+  margin: auto;
+  border: 1px solid var(--ac-color);
+  width: 500px;
+  border-radius: 10px;
+}
+
+.form {
+  padding: 2rem;
+  margin: 1rem;
+  border: 3px var(--ac-color) solid;
+  border-radius: 10px;
+}
+
+.form-input {
+  margin-top: 15px;
+}
+
+.form-input > input {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+  font-size: large;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-input input:focus {
+  outline: none;
+}
+
+input:invalid {
+  border-color: var(--invalid);
+  display: block;
+}
+
+input:invalid ~ .invalid-email {
+  display: block;
+}
+.invalid-email {
+  display: none;
+  color: var(--invalid);
+}
+
+input:invalid ~ .invalid-passw {
+  display: block;
+}
+.invalid-passw {
+  display: none;
+  color: var(--invalid);
+}
+
+input:invalid ~ .invalid-name {
+  display: block;
+}
+.invalid-name {
+  display: none;
+  color: var(--invalid);
+}
+
+input:valid {
+  border-color: var(--valid);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.form-buttons button {
+  display: block;
+  padding: 14px 0px;
+  text-decoration: none;
+  border: 0px;
+  background: none;
+  font-size: medium;
+}
+
+.form-buttons button:hover {
+  cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
