@@ -1,7 +1,7 @@
 const fetchData = async (url, options) => {
   try {
     const res = await fetch(url, options);
-    if (!res.status) {
+    if (!res.ok) {
       throw new Error(`Response status ${res.status}`);
     }
 

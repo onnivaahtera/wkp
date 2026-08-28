@@ -3,7 +3,7 @@ const getRestaurants = async () => {
     const res = await fetch(
       'https://media1.edu.metropolia.fi/restaurant/api/v1/restaurants'
     );
-    if (!res.status) {
+    if (!res.ok) {
       throw new Error('Error', res.status);
     }
     const data = await res.json();
@@ -18,7 +18,7 @@ const getDailyMenu = async (id) => {
     const res = await fetch(
       `https://media1.edu.metropolia.fi/restaurant/api/v1/restaurants/daily/${id}/en`
     );
-    if (!res.status) {
+    if (!res.ok) {
       throw new Error('Error', res.status);
     }
     const data = await res.json();
@@ -38,8 +38,8 @@ const render = async () => {
     const name = document.createElement('th');
     const address = document.createElement('th');
 
-    name.innerHTML = restaurant.name;
-    address.innerHTML = restaurant.address;
+    name.textContent = restaurant.name;
+    address.textContent = restaurant.address;
 
     name.addEventListener('click', () => {
       document.querySelectorAll('th').forEach((i) => {
