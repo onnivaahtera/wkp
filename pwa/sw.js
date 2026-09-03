@@ -1,5 +1,11 @@
 const cacheName = 'hello-pwa';
-const filesToCache = ['/', '/index.html', '/css/style.css', '/js/main.js'];
+const filesToCache = [
+  '/',
+  '/index.html',
+  '/css/style.css',
+  '/css/ComicRelief-Regular.ttf',
+  '/js/main.js',
+];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(

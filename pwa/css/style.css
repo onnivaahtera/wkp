@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('ComicRelief-Regular.ttf');
+}
 body {
-  font-family: sans-serif;
+  font-family: CustomFont;
+  background-image: url('../images/bg.jpg');
+  background-repeat: no-repeat;
 }
 
 /* Make content area fill the entire browser window */
