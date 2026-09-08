@@ -77,6 +77,8 @@
         </div>
       </dialog>
 
+      <div class="hero"></div>
+
       <div style="height: 400px"></div>
 
       <div class="about">
@@ -108,6 +110,32 @@
       const closeForm = () => {
         dialog.close();
       };
+
+      const createUser = async (user) => {
+        try {
+          const res = await fetch('https://reqres.in/api/users', {
+            method: 'POST',
+            headers: {
+              'x-api-key': 'reqres-free-v1',
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(user),
+          });
+          if (!res.ok) throw new Error(res.status);
+          const data = await res.json();
+          console.log(data);
+          return data;
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      userForm = document.querySelector('#register');
+      userForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(userForm);
+        const user = Object.fromEntries(formData);
+        const createdUser = await createUser(user);
+      });
     </script>
   </body>
 </html>
