@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": "./",
+    "target": "ESNext",
+    "module": "ESNext",
+    "noImplicitAny": true,
+    "strict": true,
+    "moduleDetection": "force"
+  },
+  "include": ["./**/*.ts"]
+}
