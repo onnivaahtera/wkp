@@ -35,7 +35,9 @@ const createTable = (restaurants: Restaurants) => {
 
         // fetch menu
         const menu = await fetchData(
-          apiUrl + `/restaurants/daily/${restaurant._id}/fi`
+          apiUrl + `/restaurants/daily/${restaurant._id}/fi`, {
+            method: "GET"
+          }
         );
         console.log(menu);
 
@@ -58,7 +60,9 @@ const error = (err: GeolocationPositionError) => {
 const success = async (pos: GeolocationPosition) => {
   try {
     const crd = pos.coords;
-    const restaurants = await fetchData(apiUrl + '/restaurants');
+    const restaurants = await fetchData(apiUrl + '/restaurants', {
+      method: "GET"
+    });
     console.log(restaurants);
     restaurants.sort((a: Restaurant, b: Restaurant) => {
       const x1 = crd.latitude;
