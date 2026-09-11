@@ -6,7 +6,7 @@ function squareRoot(num) {
         return 'Input is undefined or null.';
     }
     // TODO: Check if the input is a valid number. If fail, return 'Invalid input. Please enter a valid number.'
-    if (!Number.isFinite(num)) {
+    if (isNaN(num)) {
         return 'Invalid input. Please enter a valid number.';
     }
     // TODO: Handle cases where the input is negative. If fail, return 'Cannot calculate square root of a negative number.'
